@@ -1,4 +1,4 @@
-var question = function ask() {
+(function {
     var confirmed = confirm("You wanna see something?")
     console.log(confirmed)                          //dopisanie tego pozwala konsoli na odczytanie wartości true lub false
 
@@ -8,7 +8,17 @@ var question = function ask() {
     }
 
     else {
-        alert ("that's ok")
+        alert("that's ok")
     }
-}
-question()                  // question() wywołuje powyższą funkcję, bez tego, okienka nie pojawią się w przeglądarce
+})() // ze względu na okrągłe nawiasy przed funkcją i za nią, funkcja sama sie wywołuje, bez tych nawiasów potrzebna byłaby nazwa funkcji oraz na końcu ponownie jej nazwa z nawiasami () która by ją wywołała
+
+//poniżej krótszy zapis powyższej funkcji
+(function () {
+    if (confirm("You wanna see something?")){
+        alert(
+           prompt("write: your name")
+        )
+    }else {
+        alert("that's ok")
+    }
+})()
